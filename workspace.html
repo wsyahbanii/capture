@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0554DTXC0W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0554DTXC0W');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOID BOOTH | Workspace</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="workspace">
+    <nav class="navbar">
+        <div class="logo">WORKSPACE</div>
+        <div class="menu"><a href="edit.html">⬅ CANCEL</a></div>
+    </nav>
+
+    <main class="app-container">
+        <div class="edit-workspace" id="workspace">
+            <img id="preview-image" src="" alt="Processing...">
+            <canvas id="final-canvas" class="hidden"></canvas>
+            <div id="sticker-layer"></div>
+        </div>
+
+        <div class="editor-floating-panel">
+            <div class="text-input-container">
+                <textarea id="custom-text-input" placeholder="Ketik teks di sini..." class="brutalist-input brutalist-textarea" rows="1"></textarea>
+                
+                <div class="custom-brutalist-color" id="custom-color-dropdown">
+                    <button type="button" class="color-trigger" id="color-trigger-btn"></button>
+                    <div class="color-options hidden" id="color-options-menu">
+                        <div class="color-option active" data-color="#111111" style="background-color: #111111;"></div>
+                        <div class="color-option" data-color="#ffffff" style="background-color: #ffffff;"></div>
+                        <div class="color-option" data-color="#ff6b6b" style="background-color: #ff6b6b;"></div>
+                        <div class="color-option" data-color="#fceea7" style="background-color: #fceea7;"></div>
+                        <div class="color-option" data-color="#ff9fb2" style="background-color: #ff9fb2;"></div>
+                        <div class="color-option" data-color="#a8e6cf" style="background-color: #a8e6cf;"></div>
+                        <div class="color-option" data-color="#74b9ff" style="background-color: #74b9ff;"></div>
+                        
+                        <button type="button" class="free-color-wrapper" id="btn-custom-color" title="Bikin Warna Sendiri">
+                            <span class="free-color-icon">🎨</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="custom-brutalist-select" id="custom-font-dropdown">
+                    <button type="button" class="select-trigger" id="font-trigger-btn">FREDOKA ▼</button>
+                    <div class="select-options hidden" id="font-options-menu">
+                        <div class="font-option active" data-font="'Fredoka', sans-serif" style="font-family: 'Fredoka';">VOID</div>
+                        <div class="font-option" data-font="'Pokemon', 'Fredoka', sans-serif" style="font-family: 'Pokemon';">VOID</div>
+                        <div class="font-option" data-font="'Happy', 'Fredoka', sans-serif" style="font-family: 'Happy';">VOID</div>
+                        <div class="font-option" data-font="'Fun', 'Fredoka', sans-serif" style="font-family: 'Fun';">VOID</div>
+                        <div class="font-option" data-font="'Varsity', 'Fredoka', sans-serif" style="font-family: 'Varsity';">VOID</div>
+                        <div class="font-option" data-font="'SisterSpray', 'Fredoka', sans-serif" style="font-family: 'SisterSpray';">VOID</div>
+                        <div class="font-option" data-font="'GrimeSlime', 'Fredoka', sans-serif" style="font-family: 'GrimeSlime';">VOID</div>
+                        <div class="font-option" data-font="'GrimeSlime2', 'Fredoka', sans-serif" style="font-family: 'GrimeSlime2';">VOID</div>
+                        <div class="font-option" data-font="'Bubble', 'Fredoka', sans-serif" style="font-family: 'Bubble';">VOID</div>
+                        <div class="font-option" data-font="'Wildeast', 'Fredoka', sans-serif" style="font-family: 'Wildeast';">VOID</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="editor-nav">
+                <button id="btn-open-sticker" class="tool-btn">★ STICKER</button>
+                <button id="btn-add-text" class="tool-btn">T TEXT</button>
+                <button id="btn-done-edit" class="tool-btn done-btn">✔ OK</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="sticker-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>SELECT STICKER</h3>
+                <button id="btn-close-sticker" class="close-btn"><img src="assets/icons/delete.png" alt="Delete" style="width: 100%; height: 100%;"></button>
+            </div>
+            
+            <div class="sticker-category-nav">
+                <button class="stk-cat-btn active" data-stk-cat="all">ALL</button>
+                <button class="stk-cat-btn" data-stk-cat="random">RANDOM</button>
+                <button class="stk-cat-btn" data-stk-cat="black">BLACK</button>
+                <button class="stk-cat-btn" data-stk-cat="props">PROPS</button>
+                <button class="stk-cat-btn" data-stk-cat="anime">ANIME</button>
+                <button class="stk-cat-btn" data-stk-cat="cute">CUTE</button>
+                <button class="stk-cat-btn" data-stk-cat="flowers">FLOWERS</button>
+                <button class="stk-cat-btn" data-stk-cat="alphabet">ALPHABET</button>
+            </div>
+            
+            <div class="sticker-grid" id="modal-sticker-grid">
+                <!-- Random Stickers -->
+                <img src="assets/stickers/random/random1.png" class="sticker-thumb" data-src="assets/stickers/random/random1.png" data-stk-cat="random">
+                <img src="assets/stickers/random/random2.png" class="sticker-thumb" data-src="assets/stickers/random/random2.png" data-stk-cat="random">
+                <img src="assets/stickers/random/random3.png" class="sticker-thumb" data-src="assets/stickers/random/random3.png" data-stk-cat="random">
+                <img src="assets/stickers/random/random4.png" class="sticker-thumb" data-src="assets/stickers/random/random4.png" data-stk-cat="random">
+                <img src="assets/stickers/random/random5.png" class="sticker-thumb" data-src="assets/stickers/random/random5.png" data-stk-cat="random">
+                <!-- Black Stickers -->
+                <img src="assets/stickers/black/black1.png" class="sticker-thumb" data-src="assets/stickers/black/black1.png" data-stk-cat="black">
+                <img src="assets/stickers/black/black2.png" class="sticker-thumb" data-src="assets/stickers/black/black2.png" data-stk-cat="black">
+                <img src="assets/stickers/black/black3.png" class="sticker-thumb" data-src="assets/stickers/black/black3.png" data-stk-cat="black">
+                <img src="assets/stickers/black/black4.png" class="sticker-thumb" data-src="assets/stickers/black/black4.png" data-stk-cat="black">
+                <img src="assets/stickers/black/black5.png" class="sticker-thumb" data-src="assets/stickers/black/black5.png" data-stk-cat="black">
+                <img src="assets/stickers/black/black6.png" class="sticker-thumb" data-src="assets/stickers/black/black6.png" data-stk-cat="black">
+                <img src="assets/stickers/black/black7.png" class="sticker-thumb" data-src="assets/stickers/black/black7.png" data-stk-cat="black">
+                <img src="assets/stickers/black/black8.png" class="sticker-thumb" data-src="assets/stickers/black/black8.png" data-stk-cat="black">
+                <img src="assets/stickers/black/black9.png" class="sticker-thumb" data-src="assets/stickers/black/black9.png" data-stk-cat="black">
+                <img src="assets/stickers/black/black10.png" class="sticker-thumb" data-src="assets/stickers/black/black10.png" data-stk-cat="black">
+                <!-- Props Stickers -->
+                <img src="assets/stickers/props/props1.png" class="sticker-thumb" data-src="assets/stickers/props/props1.png" data-stk-cat="props">
+                <img src="assets/stickers/props/props2.png" class="sticker-thumb" data-src="assets/stickers/props/props2.png" data-stk-cat="props">
+                <img src="assets/stickers/props/props3.png" class="sticker-thumb" data-src="assets/stickers/props/props3.png" data-stk-cat="props">
+                <img src="assets/stickers/props/props4.png" class="sticker-thumb" data-src="assets/stickers/props/props4.png" data-stk-cat="props">
+                <img src="assets/stickers/props/props5.png" class="sticker-thumb" data-src="assets/stickers/props/props5.png" data-stk-cat="props">
+                <!--anime-->
+                <img src="assets/stickers/anime/anime1.png" class="sticker-thumb" data-src="assets/stickers/anime/anime1.png" data-stk-cat="anime">
+                <img src="assets/stickers/anime/anime2.png" class="sticker-thumb" data-src="assets/stickers/anime/anime2.png" data-stk-cat="anime">
+                <img src="assets/stickers/anime/anime3.png" class="sticker-thumb" data-src="assets/stickers/anime/anime3.png" data-stk-cat="anime">
+                <img src="assets/stickers/anime/anime5.png" class="sticker-thumb" data-src="assets/stickers/anime/anime5.png" data-stk-cat="anime">
+                <img src="assets/stickers/anime/anime6.png" class="sticker-thumb" data-src="assets/stickers/anime/anime6.png" data-stk-cat="anime">
+                <img src="assets/stickers/anime/anime7.png" class="sticker-thumb" data-src="assets/stickers/anime/anime7.png" data-stk-cat="anime">
+                <img src="assets/stickers/anime/anime8.png" class="sticker-thumb" data-src="assets/stickers/anime/anime8.png" data-stk-cat="anime">
+                <img src="assets/stickers/anime/anime9.png" class="sticker-thumb" data-src="assets/stickers/anime/anime9.png" data-stk-cat="anime">
+                <img src="assets/stickers/anime/anime10.png" class="sticker-thumb" data-src="assets/stickers/anime/anime10.png" data-stk-cat="anime">
+                <!-- Cute Stickers -->
+                <img src="assets/stickers/cute/cute1.png" class="sticker-thumb" data-src="assets/stickers/cute/cute1.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute2.png" class="sticker-thumb" data-src="assets/stickers/cute/cute2.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute3.png" class="sticker-thumb" data-src="assets/stickers/cute/cute3.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute4.png" class="sticker-thumb" data-src="assets/stickers/cute/cute4.png" data-stk-cat="cute">                
+                <img src="assets/stickers/cute/cute6.png" class="sticker-thumb" data-src="assets/stickers/cute/cute6.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute7.png" class="sticker-thumb" data-src="assets/stickers/cute/cute7.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute8.png" class="sticker-thumb" data-src="assets/stickers/cute/cute8.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute9.png" class="sticker-thumb" data-src="assets/stickers/cute/cute9.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute10.png" class="sticker-thumb" data-src="assets/stickers/cute/cute10.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute11.png" class="sticker-thumb" data-src="assets/stickers/cute/cute11.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute12.png" class="sticker-thumb" data-src="assets/stickers/cute/cute12.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute13.png" class="sticker-thumb" data-src="assets/stickers/cute/cute13.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute14.png" class="sticker-thumb" data-src="assets/stickers/cute/cute14.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute15.png" class="sticker-thumb" data-src="assets/stickers/cute/cute15.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute16.png" class="sticker-thumb" data-src="assets/stickers/cute/cute16.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute17.png" class="sticker-thumb" data-src="assets/stickers/cute/cute17.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute18.png" class="sticker-thumb" data-src="assets/stickers/cute/cute18.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute19.png" class="sticker-thumb" data-src="assets/stickers/cute/cute19.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute20.png" class="sticker-thumb" data-src="assets/stickers/cute/cute20.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute21.png" class="sticker-thumb" data-src="assets/stickers/cute/cute21.png" data-stk-cat="cute">
+                <img src="assets/stickers/cute/cute22.png" class="sticker-thumb" data-src="assets/stickers/cute/cute22.png" data-stk-cat="cute">
+                <!--Flowers-->
+                <img src="assets/stickers/flowers/flowers1.png" class="sticker-thumb" data-src="assets/stickers/flowers/flowers1.png" data-stk-cat="flowers">
+                <img src="assets/stickers/flowers/flowers2.png" class="sticker-thumb" data-src="assets/stickers/flowers/flowers2.png" data-stk-cat="flowers">
+                <!-- Alphabet Stickers -->
+                <img src="assets/stickers/alphabet/a.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/a.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/b.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/b.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/c.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/c.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/d.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/d.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/e.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/e.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/f.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/f.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/g.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/g.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/h.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/h.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/i.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/i.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/j.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/j.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/k.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/k.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/l.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/l.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/m.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/m.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/n.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/n.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/o.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/o.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/p.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/p.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/q.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/q.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/r.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/r.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/s.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/s.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/t.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/t.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/u.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/u.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/v.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/v.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/w.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/w.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/x.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/x.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/y.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/y.webp" data-stk-cat="alphabet">
+                <img src="assets/stickers/alphabet/z.webp" class="sticker-thumb" data-src="assets/stickers/alphabet/z.webp" data-stk-cat="alphabet">
+            </div>
+        </div>
+    </div>
+
+    <div id="color-modal" class="modal-overlay hidden">
+        <div class="modal-content" style="max-width: 320px;">
+            <div class="modal-header">
+                <h3>CUSTOM COLOR</h3>
+                <button id="btn-close-color" class="close-btn">✖</button>
+            </div>
+            <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1.2rem; background: #fff;">
+                <div id="color-preview" style="width: 100%; height: 70px; background: #111111; border: 4px solid #111; border-radius: 8px; box-shadow: 6px 6px 0 #111;"></div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                    <div>
+                        <label style="font-weight: 800; font-size: 0.9rem;">RED <span id="val-r" style="float:right; color:#ff6b6b;">17</span></label>
+                        <input type="range" id="range-r" class="brutalist-slider" min="0" max="255" value="17">
+                    </div>
+                    <div>
+                        <label style="font-weight: 800; font-size: 0.9rem;">GREEN <span id="val-g" style="float:right; color:#a8e6cf;">17</span></label>
+                        <input type="range" id="range-g" class="brutalist-slider" min="0" max="255" value="17">
+                    </div>
+                    <div>
+                        <label style="font-weight: 800; font-size: 0.9rem;">BLUE <span id="val-b" style="float:right; color:#74b9ff;">17</span></label>
+                        <input type="range" id="range-b" class="brutalist-slider" min="0" max="255" value="17">
+                    </div>
+                </div>
+                
+                <input type="text" id="hex-input" class="brutalist-input" value="#111111" style="text-align: center; text-transform: uppercase; letter-spacing: 2px;">
+                
+                <button id="btn-apply-color" class="tool-btn done-btn" style="width: 100%; margin-top: 0.5rem;">✔ APPLY</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <p>BAKING VOID...</p>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

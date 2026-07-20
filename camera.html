@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0554DTXC0W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0554DTXC0W');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOID BOOTH | Camera</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="camera">
+    <nav class="navbar">
+        <div class="logo">VOID BOOTH</div>
+        <div class="menu"><a href="index.html">◀BACK</a></div>
+    </nav>
+
+    <main class="app-container">
+        <div class="camera-section">
+            <div class="video-wrapper">
+                <video id="webcam" autoplay playsinline></video>
+                <div id="video-noise-overlay" class="hidden"></div>
+                
+                <button id="flip-camera-btn" title="Flip Camera">
+                    <img src="assets/icons/flip.png" alt="Flip">
+                </button>
+                
+                <div id="countdown-overlay" class="hidden">3</div>
+                <div id="flash-overlay" class="hidden"></div>
+            </div>
+
+            <div class="controls">
+                <label>CAMERA FILTER:</label>
+                <div class="visual-selector" id="filter-selector">
+                    <div class="option-filter active" data-filter="none">
+                        <div class="icon-filter" style="background: #ccc;"></div><span>NORMAL</span>
+                    </div>
+                    <div class="option-filter" data-filter="grayscale(100%) contrast(120%)">
+                        <div class="icon-filter" style="background: #fff; border: 1px solid #000;"></div><span>NOIR</span>
+                    </div>
+                    <div class="option-filter" data-filter="contrast(140%) saturate(0%)">
+                        <div class="icon-filter" style="background: #000; border: 1px solid #fff;"></div><span>GELAP BAT</span>
+                    </div>
+                    <div class="option-filter" data-filter="sepia(100%) contrast(110%)">
+                        <div class="icon-filter" style="background: #d4b895;"></div><span>VINTAGE</span>
+                    </div>
+                    <div class="option-filter" data-filter="noise">
+                        <div class="icon-filter" style="background: #555;"></div><span>NOISE</span>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <label>TIMER:</label>
+                <div class="visual-selector" id="timer-selector">
+                    <button class="timer-btn active" data-time="0">OFF</button>
+                    <button class="timer-btn" data-time="3">3S</button>
+                    <button class="timer-btn" data-time="5">5S</button>
+                </div>
+            </div>
+
+            <div class="floating-wrapper">
+                <button id="start-btn">MEMUAT KAMERA...</button>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

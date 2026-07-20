@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Fredoka', sans-serif; }
+body { background-color: #fceea7; color: #111; min-height: 100vh; display: flex; flex-direction: column; }
+.hidden { display: none !important; }
+
+/* navbar global */
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; border-bottom: 4px solid #111; background-color: #ff9fb2; }
+.logo { font-weight: 600; font-size: 1.8rem; letter-spacing: 2px; color: #111; }
+.menu a { color: #111; text-decoration: none; margin-left: 1.5rem; font-size: 1rem; font-weight: 600; transition: all 0.2s; }
+.menu a:hover, .menu a.active { background-color: #111; color: #fff; padding: 0.4rem 0.8rem; border-radius: 8px; }
+
+/* app container */
+.app-container { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem; width: 100%; padding-bottom: 100px; }
+
+/* button global */
+button { background: #a8e6cf; color: #111; border: 3px solid #111; border-radius: 12px; padding: 1rem; font-size: 1.2rem; font-weight: 600; cursor: pointer; text-transform: uppercase; box-shadow: 4px 4px 0 #111; transition: all 0.1s; margin-top: 1.5rem; width: 100%; max-width: 500px; }
+button:hover { background: #ffd3b6; transform: translateY(-2px); box-shadow: 4px 6px 0 #111; }
+button:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #111; }
+button:disabled { background: #ccc; cursor: not-allowed; box-shadow: 2px 2px 0 #111; transform: translate(2px, 2px); }
+.floating-wrapper { position: fixed; bottom: 20px; left: 0; width: 100%; display: flex; justify-content: center; padding: 0 1rem; z-index: 999; pointer-events: none; }
+.floating-wrapper button { pointer-events: auto; margin-top: 0; max-width: 450px; width: 100%; }
+
+/*about, contact, privacy*/
+.content-box { max-width: 600px; width: 100%; border: 4px solid #111; border-radius: 16px; padding: 2rem; background: #fff; line-height: 1.6; box-shadow: 8px 8px 0 #111; }
+.content-box h1 { border-bottom: 3px dashed #111; padding-bottom: 1rem; margin-bottom: 1.5rem; text-transform: uppercase; color: #ff6b6b; }
+.content-box h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; color: #111; font-weight: 600; }
+.content-box p, .content-box li { color: #111; font-size: 1.05rem; margin-bottom: 1rem; font-weight: 500; }
+.content-box ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+.content-box strong { color: #ff6b6b; font-weight: 600; }
+
+.data-row { display: flex; border-bottom: 2px dashed #ccc; padding: 0.8rem 0; align-items: center; }
+.data-label { width: 120px; font-weight: 600; color: #555; }
+.data-value a { 
+    color: #ff6b6b; text-decoration: none; font-weight: 600;
+    border-bottom: 2px solid transparent; transition: all 0.2s;
+}
+.data-value a:hover { border-bottom: 2px solid #111; color: #111; }
+
+.sigil-logo { text-align: center; font-size: 3rem; margin: 2rem 0; letter-spacing: 5px; }
+.sigil-logo img { border-radius: 12px; box-shadow: 4px 4px 0 #111; border: 3px solid #111; }
+
+
+/* loading screen */
+#loading-screen { position: fixed; inset: 0; background: #fceea7; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.loader { width: 60px; height: 60px; border: 6px solid #111; border-top: 6px solid #ff6b6b; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 1.5rem; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+@font-face {
+    font-family: 'SisterSpray';
+    src: url('../assets/fonts/font1.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'GrimeSlime';
+    src: url('../assets/fonts/font2.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'GrimeSlime2';
+    src: url('../assets/fonts/font3.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Bubble';
+    src: url('../assets/fonts/font4.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Wildeast';
+    src: url('../assets/fonts/font5.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Pokemon';
+    src: url('../assets/fonts/font6.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Happy';
+    src: url('../assets/fonts/font7.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Fun';
+    src: url('../assets/fonts/font8.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Varsity';
+    src: url('../assets/fonts/font9.ttf') format('truetype');
+}

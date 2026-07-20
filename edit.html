@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0554DTXC0W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0554DTXC0W');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOID BOOTH | Result</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="edit">
+    <nav class="navbar">
+        <div class="logo">VOID BOOTH</div>
+    </nav>
+
+    <main class="app-container">
+        <h2 style="text-align:center; color: #111; margin-bottom: 1rem;">YOUR VOID</h2>
+        
+        <div class="edit-workspace" id="workspace">
+            <img id="preview-image" src="" alt="Processing...">
+            <button id="btn-enter-edit" class="btn-floating-edit">✎ EDIT</button>
+        </div>
+
+        <div class="result-actions" style="margin-top: 1rem;">
+            <button id="retake-btn" class="btn-outline">RETAKE</button>
+            <button id="download-btn">DOWNLOAD PNG</button>
+        </div>
+    </main>
+
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <p>PROCESSING VOID...</p>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

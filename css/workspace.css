@@ -1,0 +1,200 @@
+.edit-workspace { position: relative; width: 100%; max-width: 450px; margin: 0 auto; border: 4px solid #111; border-radius: 16px; box-shadow: 8px 8px 0 #111; overflow: hidden; background: #fff; }
+#preview-image { width: 100%; display: block; }
+#sticker-layer { position: absolute; inset: 0; pointer-events: none; }
+
+.sticker-thumb { width: 70px; height: 70px; object-fit: contain; background: #fff; border: 3px solid #111; border-radius: 8px; cursor: pointer; padding: 5px; box-shadow: 3px 3px 0 #111; transition: 0.2s; flex-shrink: 0; }
+.sticker-thumb:hover { transform: translateY(-2px); box-shadow: 3px 5px 0 #111; }
+
+.sticker-wrapper { position: absolute; display: inline-block; transform-origin: center center; user-select: none; z-index: 10; pointer-events: auto; }
+.sticker-wrapper img.sticker-img { display: block; width: 100px; height: auto; pointer-events: none; }
+.sticker-wrapper.active { border: 2px dashed #ff6b6b; z-index: 100 !important; }
+
+/* Tombol Edit Stiker */
+.sticker-handle {position: absolute; width: 28px; height: 28px;background: #fff; border: 2px solid #111;display: none; align-items: center; justify-content: center;box-shadow: 2px 2px 0 #111; pointer-events: auto;padding: 4px;}
+.sticker-handle img {width: 100%; height: 100%; object-fit: contain; pointer-events: none;}
+.sticker-wrapper.active .sticker-handle { display: flex; }
+.handle-move { top: -15px; left: -15px; background: #fff; cursor: move; } 
+.handle-delete { top: -15px; right: -15px; background: #ff6b6b; color: #fff; cursor: pointer; } 
+.handle-rotate { bottom: -15px; left: -15px; background: #ffd3b6; cursor: grab; } 
+.handle-scale { bottom: -15px; right: -15px; background: #a8e6cf; cursor: se-resize; } 
+
+/* popup stiker */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem; backdrop-filter: blur(5px); }
+.modal-overlay.hidden { display: none !important; }
+.modal-content { background: #fff; border: 4px solid #111; border-radius: 16px; width: 100%; max-width: 400px; max-height: 80vh; display: flex; flex-direction: column; box-shadow: 8px 8px 0 #111; overflow: hidden; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 4px solid #111; background: #ff9fb2; }
+.modal-header h3 { margin: 0; font-size: 1.2rem; color: #111; font-weight: 600; }
+.close-btn { background: #ff6b6b; color: #fff; border: 3px solid #111; width: 35px; height: 35px; border-radius: 8px; font-weight: bold; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; margin: 0; padding: 0; box-shadow: 2px 2px 0 #111; }
+.close-btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 #111; background: #111; }
+
+.sticker-category-nav { display: flex; gap: 0.5rem; padding: 1rem; border-bottom: 2px dashed #111; overflow-x: auto; background: #fceea7; height: 100%; }
+.sticker-category-nav::-webkit-scrollbar { display: none; }
+.stk-cat-btn { background: #fff; width: auto; height: 100%; border: 3px solid #111; padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: bold; font-size: 0.8rem; cursor: pointer; box-shadow: 2px 2px 0 #111; margin: 0; flex-shrink: 0; }
+.stk-cat-btn.active, .stk-cat-btn:hover { background: #111; color: #fff; transform: translate(2px,2px); box-shadow: 0px 0px 0 #111; }
+
+.sticker-grid { padding: 1rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; overflow-y: auto; background: #fff; flex: 1; }
+.sticker-grid .sticker-thumb { display: none; width: 70px; height: 70px; }
+.sticker-grid .sticker-thumb.show { display: block; }
+
+/* --- UTAMA: WADAH PANEL MELAYANG --- */
+.editor-floating-panel {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    width: 100%; max-width: 450px; display: flex; flex-direction: column;
+    gap: 0.6rem; padding: 0 1rem; z-index: 999;
+}
+
+/* --- ADAPTASI INPUT TEKS & NAV BAR DI DALAM PANEL --- */
+.text-input-container { display: flex; gap: 0.5rem; width: 100%; align-items: center; }
+
+.brutalist-input, .brutalist-select {
+    padding: 0.7rem; font-size: 0.95rem; font-weight: bold; color: #111;
+    border: 3px solid #111; border-radius: 8px; box-shadow: 4px 4px 0 #111;
+    outline: none; background: #fff;
+}
+
+.brutalist-input { flex: 1; resize: none; height: 46px; font-family: inherit; line-height: 1.2; overflow-y: hidden; }
+.brutalist-input:focus, .brutalist-select:focus { background: #fffdf0; }
+
+.editor-nav {
+    display: flex; gap: 0.5rem; justify-content: center; width: 100%; background: #fff;
+    padding: 0.5rem; border: 3px solid #111; border-radius: 12px; box-shadow: 4px 4px 0 #111;
+}
+
+.tool-btn {
+    margin: 0; padding: 0.6rem; font-size: 0.9rem; flex: 1; box-shadow: 2px 2px 0 #111;
+    background: #fff; border: 3px solid #111; font-weight: bold; cursor: pointer;
+    border-radius: 8px; text-transform: uppercase; transition: 0.1s;
+}
+.tool-btn:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 #111; }
+.tool-btn:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 #111; }
+.done-btn { background: #a8e6cf; }
+.done-btn:hover { transform: translate(2px, 2px); box-shadow: 0 0 0 #111; background: #111; color:#fff;}
+
+/* --- AMAN: ANTI KETUTUPAN SAAT DI-SCROLL --- */
+body[data-page="workspace"] .app-container { padding-bottom: 180px !important; }
+
+/* KUNCI UTAMA REAL-TIME MULTILINE DI LAYAR */
+.sticker-text {
+    white-space: pre-wrap !important; text-align: center; word-break: break-word; line-height: 1.2;
+}
+
+/* --- CUSTOM SELECT UNTUK MOBILE FONT PREVIEW --- */
+.custom-brutalist-select { position: relative; flex: 0.7; display: flex; flex-direction: column; }
+
+.select-trigger {
+    width: 100%; 
+    height: 46px; /* KUNCI 2: Paksa tinggi tetap 46px sama dengan kotak lainnya */
+    padding: 0 0.5rem; font-size: 0.95rem; font-weight: bold; color: #111;
+    background: #fff; border: 3px solid #111; border-radius: 8px; box-shadow: 4px 4px 0 #111;
+    cursor: pointer; text-align: center; text-transform: uppercase; margin: 0;
+    
+    /* KUNCI 3: Gunakan flexbox agar teks selalu satu baris dan dipotong rapi jika kepanjangan */
+    display: flex; align-items: center; justify-content: center;
+    white-space: nowrap; overflow: hidden;
+}
+
+.select-trigger:hover { background: #fffdf0; transform: none; box-shadow: 4px 4px 0 #111; }
+
+.select-options {
+    position: absolute; bottom: 115%; left: 0; right: 0; background: #fff; border: 3px solid #111;
+    border-radius: 8px; box-shadow: 4px 4px 0 #111; z-index: 1000; max-height: 200px;
+    overflow-y: auto; display: flex; flex-direction: column;
+}
+.font-option {
+    padding: 0.8rem; font-size: 1.1rem; color: #111; cursor: pointer; text-align: center;
+    border-bottom: 2px solid #111; background: #fff; transition: 0.1s; height: 50px; display: flex;
+    align-items: center; justify-content: center;
+}
+.font-option:last-child { border-bottom: none; }
+.font-option:hover, .font-option.active { background: #111; color: #fff; }
+
+/* --- CUSTOM SELECT UNTUK COLOR PREVIEW TEMA BRUTALISM & FREE PICKER --- */
+.custom-brutalist-color { position: relative; flex-shrink: 0; }
+
+.color-trigger {
+    width: 46px; height: 46px; 
+    border: 3px solid #111;
+    border-radius: 8px; box-shadow: 4px 4px 0 #111; 
+    cursor: pointer; padding: 0; margin: 0; 
+    transition: 0.1s; 
+    /* Menggunakan gradien agar terlihat seperti tombol warna */
+    background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
+}
+.color-trigger:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #111; }
+.color-trigger:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #111; }
+
+.color-options {
+    position: absolute; bottom: 115%; left: 0; 
+    background: #fff; border: 3px solid #111; 
+    border-radius: 8px; box-shadow: 4px 4px 0 #111; 
+    z-index: 1000; padding: 0.6rem; 
+    
+    /* PENGATURAN GRID YANG MENGUNCI POSISI */
+    display: grid; 
+    grid-template-columns: repeat(4, 32px); /* Paksa 4 kolom persis 32px */
+    gap: 0.5rem;
+    align-items: center; /* KUNCI: Mencegah kotak turun gara-gara emoji */
+    width: max-content;
+}
+
+/* Pastikan ukuran dan margin seragam */
+.color-option, .free-color-wrapper {
+    width: 32px; height: 32px; 
+    border: 3px solid #111; border-radius: 6px;
+    cursor: pointer; transition: 0.1s;
+    margin: 0; padding: 0; 
+    box-sizing: border-box;
+}
+
+.color-option:hover, .color-option.active, .free-color-wrapper:hover { 
+    transform: scale(1.15); box-shadow: 2px 2px 0 #111; 
+    z-index: 2; 
+}
+
+/* Penyesuaian khusus tombol warna bebas */
+.free-color-wrapper {
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center; 
+    background: #fff; 
+    line-height: 1; /* Mencegah font/emoji menambah tinggi elemen */
+}
+
+.free-color-icon { font-size: 16px; pointer-events: none; z-index: 2; display: block; }
+
+#free-color-picker {
+    position: absolute; opacity: 0; width: 200%; height: 200%; 
+    cursor: pointer; left: -50%; top: -50%;
+}
+
+/* --- BRUTALIST SLIDER --- */
+.brutalist-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 14px;
+    background: #fff;
+    border: 3px solid #111;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 #111;
+    outline: none;
+    margin-top: 5px;
+}
+.brutalist-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 26px;
+    height: 26px;
+    background: #fceea7;
+    border: 3px solid #111;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 #111;
+    transition: 0.1s;
+}
+.brutalist-slider::-webkit-slider-thumb:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 #111;
+    background: #111;
+}
+#range-r::-webkit-slider-thumb { background: #ff6b6b; }
+#range-g::-webkit-slider-thumb { background: #a8e6cf; }
+#range-b::-webkit-slider-thumb { background: #74b9ff; }

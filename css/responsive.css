@@ -1,0 +1,39 @@
+/* ==========================================
+   RESPONSIVE MOBILE OPTIMIZATION
+   ========================================== */
+@media (max-width: 600px) {
+    .navbar { flex-direction: column; gap: 0.8rem; text-align: center; padding: 1rem; }
+    .menu { margin-top: 0.2rem;}
+    .menu a { margin: 0 0.5rem; font-size: 0.9rem; padding: 0.3rem 0.5rem;}
+    .menu a:hover, .menu a.active { padding: 0.3rem 0.5rem; }
+    .app-container { padding: 1rem 0.5rem; }
+    
+    .video-wrapper, .edit-workspace, .content-box { box-shadow: 4px 4px 0 #111; border-width: 3px; }
+    
+    .category-nav { justify-content: center; padding: 0; gap: 0.5rem; right: 4px; }
+    .dropdown-menu { left: 50%; transform: translateX(-50%); }
+    .layout-grid { gap: 0.5rem; }
+    .option-card { width: 105px; height: 160px; padding: 0.5rem; }
+    .option-card span { font-size: 0.7rem; }
+    .option-filter { width: 75px; height: 95px; }
+    .icon-filter { width: 30px; height: 30px; }
+    
+    #countdown-overlay { font-size: 4rem; }
+    .sticker-thumb { width: 55px; height: 55px; padding: 3px; }
+    
+    .result-actions { flex-direction: column; gap: 0.8rem; }
+    button { padding: 0.8rem; font-size: 1rem; margin-top: 1rem; }
+    
+    .content-box { padding: 1.5rem 1rem; }
+    .content-box h1 { font-size: 1.5rem; }
+    .data-row { flex-direction: row; align-items: flex-start; gap: 0.2rem; }
+    .data-label { width: 100%; color: #ff6b6b; font-size: 0.9rem; }
+    .data-value { width: 100%; font-size: 0.9rem; word-break: break-all; }
+
+    /* Halaman Kamera & Edit */
+    body[data-page="camera"] .navbar, body[data-page="edit"] .navbar { flex-direction: row !important; justify-content: space-between; padding: 0.8rem 1rem; }
+    body[data-page="camera"] .navbar .menu, body[data-page="edit"] .navbar .menu { order: -1; margin-top: 0; }
+    body[data-page="camera"] .logo, body[data-page="edit"] .logo { font-size: 1.4rem; }
+    body[data-page="camera"] .menu a, body[data-page="edit"] .menu a { margin: 0; }
+    #flip-camera-btn { top: 200px; right: 10px; width: 45px; height: 45px; }
+}

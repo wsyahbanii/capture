@@ -1,0 +1,37 @@
+.category-nav { display: flex; gap: 1rem; justify-content: center; align-items: center; width: 100%; max-width: 450px; margin: 0 auto 2rem auto; position: relative; }
+.category-nav > .cat-btn, .category-nav > .dropdown { flex: 1; }
+.category-nav > .dropdown { display: flex; flex-direction: column; }
+.category-nav > .dropdown > .cat-btn, .category-nav > .cat-btn.active[data-cat="all"] { height: 100%; display: flex; align-items: center; justify-content: center; white-space: nowrap; gap: 5px; }
+.cat-btn { background: #fff; color: #111; border: 3px solid #111; padding: 0.8rem 0.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s; box-shadow: 3px 3px 0 #111; text-transform: uppercase; width: 100%; height: 100%; display: block; }
+.cat-btn.active, .cat-btn:hover { background: #111; color: #fff; transform: translate(2px,2px); box-shadow: 1px 1px 0 #111; height: 100%; }
+
+.dropdown { position: relative; display: block; }
+.dropdown-menu { position: absolute; top: 110%; left: 0; right: 0; background: #fff; border: 3px solid #111; border-radius: 8px; box-shadow: 4px 4px 0 #111; display: flex; flex-direction: column; z-index: 50; overflow: hidden; width: 100%; }
+.dropdown-item { background: transparent; border: none; border-bottom: 2px solid #111; border-radius: 0; box-shadow: none; width: 100%; text-align: center; padding: 0.8rem 1rem; font-size: 0.9rem; }
+.dropdown-item:last-child { border-bottom: none; }
+.dropdown-item:hover, .dropdown-item.active { background: #111; color: #fff; transform: none; box-shadow: none; }
+
+.layout-grid { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; width: 100%; max-width: 800px; }
+.layout-grid .option-card { display: none; }
+.layout-grid .option-card.show { display: flex; }
+.content{ display: flex; flex-direction: column; align-items: center; justify-items: center;  margin-top:150px}
+h2{ font-size: 10rem; text-align: center; align-self: center; margin-bottom: 0.5rem; }
+h1{ font-size: 8rem; text-align: center; align-self: center; margin-bottom: 0.5rem; }
+p{ text-align: center; font-size: 1rem; margin-bottom: 2rem; }
+.option-card { border: 3px solid #111; background: #fff; color: #111; border-radius: 12px; display: flex; flex-direction: column; align-items: center; cursor: pointer; box-shadow: 4px 4px 0 #111; transition: all 0.15s ease-in-out; flex-shrink: 0; padding: 0.8rem; width: 120px; height: 190px; justify-content: space-between; }
+.option-card:hover { transform: translateY(-4px); box-shadow: 4px 8px 0 #111; }
+.option-card.active { background: #ff6b6b; color: #fff; transform: translate(2px, 2px); box-shadow: 2px 2px 0 #111; }
+.layout-thumbnail { width: 100%; height: 100%; max-height: 110px; object-fit: contain; background: #ffb5b5; border: 2px solid #111; border-radius: 6px; padding: 2px; margin: auto 0; }
+.option-card span { font-weight: 600; text-align: center; width: 100%; font-size: 0.8rem; min-height: 28px; display: flex; align-items: flex-end; justify-content: center; }
+@media (max-width: 600px) {
+    /* Halaman Kamera & Edit */
+    body[data-page="camera"] .navbar, body[data-page="edit"] .navbar { flex-direction: row !important; justify-content: space-between; padding: 0.8rem 1rem; }
+    body[data-page="camera"] .navbar .menu, body[data-page="edit"] .navbar .menu { order: -1; margin-top: 0; }
+    body[data-page="camera"] .logo, body[data-page="edit"] .logo { font-size: 1.4rem; }
+    body[data-page="camera"] .menu a, body[data-page="edit"] .menu a { margin: 0; }
+    #flip-camera-btn { top: 200px; right: 10px; width: 45px; height: 45px; }
+    h2{ font-size: 4rem; text-align: center; align-self: center; margin-bottom: 0.5rem; }
+    h1{ font-size: 2rem; text-align: center; align-self: center; margin-bottom: 0.5rem; }
+    p{ text-align: center; font-size: 0.9rem; margin-bottom: 2rem; }
+}
+
