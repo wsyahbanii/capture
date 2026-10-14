@@ -15,9 +15,14 @@
 .layout-grid .option-card { display: none; }
 .layout-grid .option-card.show { display: flex; }
 .content{ display: flex; flex-direction: column; align-items: center; justify-items: center;  margin-top:150px}
-h2{ font-size: 10rem; text-align: center; align-self: center; margin-bottom: 0.5rem; }
-h1{ font-size: 8rem; text-align: center; align-self: center; margin-bottom: 0.5rem; }
-p{ text-align: center; font-size: 1rem; margin-bottom: 2rem; }
+.content h2{ font-size: 10rem; text-align: center; align-self: center; margin-bottom: 0.5rem; }
+.content h1{ font-size: 8rem; text-align: center; align-self: center; margin-bottom: 0.5rem; }
+.content p{ text-align: center; font-size: 1rem; margin-bottom: 2rem; }
+
+/* judul halaman pilih frame */
+.page-title { font-size: 2.2rem; font-weight: 600; letter-spacing: 2px; text-align: center; text-transform: uppercase; margin-bottom: 1.5rem; }
+.category-nav button { margin-top: 0; }
+.dropdown-item { margin-top: 0; max-width: none; }
 .option-card { border: 3px solid #111; background: #fff; color: #111; border-radius: 12px; display: flex; flex-direction: column; align-items: center; cursor: pointer; box-shadow: 4px 4px 0 #111; transition: all 0.15s ease-in-out; flex-shrink: 0; padding: 0.8rem; width: 120px; height: 190px; justify-content: space-between; }
 .option-card:hover { transform: translateY(-4px); box-shadow: 4px 8px 0 #111; }
 .option-card.active { background: #ff6b6b; color: #fff; transform: translate(2px, 2px); box-shadow: 2px 2px 0 #111; }
@@ -30,8 +35,8 @@ p{ text-align: center; font-size: 1rem; margin-bottom: 2rem; }
     body[data-page="camera"] .logo, body[data-page="edit"] .logo { font-size: 1.4rem; }
     body[data-page="camera"] .menu a, body[data-page="edit"] .menu a { margin: 0; }
     #flip-camera-btn { top: 200px; right: 10px; width: 45px; height: 45px; }
-    h2{ font-size: 4rem; text-align: center; align-self: center; margin-bottom: 0.5rem; }
-    h1{ font-size: 2rem; text-align: center; align-self: center; margin-bottom: 0.5rem; }
-    p{ text-align: center; font-size: 0.9rem; margin-bottom: 2rem; }
+    .content h2{ font-size: 4rem; text-align: center; align-self: center; margin-bottom: 0.5rem; }
+    .content h1{ font-size: 2rem; text-align: center; align-self: center; margin-bottom: 0.5rem; }
+    .content p{ text-align: center; font-size: 0.9rem; margin-bottom: 2rem; }
+    .page-title { font-size: 1.6rem; margin-bottom: 1rem; }
 }
-

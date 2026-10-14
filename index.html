@@ -14,15 +14,39 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-page="index">
-    <main>
-        <div class="container">
-            <div class="content">
-                <h2>HTTP 503</h2>
-                <h1>UNDER MAINTENANCE</h1>
-                <p>The site is intentionally taken offline to perform updates</p>
+    <nav class="navbar">
+        <div class="logo">VOID BOOTH</div>
+        <div class="menu">
+            <a href="index.html" class="active">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="privacy.html">PRIVACY</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+    </nav>
+
+    <main class="app-container">
+        <h2 class="page-title">PILIH FRAME</h2>
+
+        <div class="category-nav">
+            <button type="button" class="cat-btn active" data-cat="all">ALL</button>
+            <div class="dropdown">
+                <button type="button" class="cat-btn" id="filter-dropdown-btn">CATEGORY ▼</button>
+                <div class="dropdown-menu hidden" id="filter-dropdown-menu">
+                    <button type="button" class="cat-btn dropdown-item" data-cat="void">VOID</button>
+                    <button type="button" class="cat-btn dropdown-item" data-cat="fun">FUN</button>
+                    <button type="button" class="cat-btn dropdown-item" data-cat="band">BAND</button>
+                    <button type="button" class="cat-btn dropdown-item" data-cat="blank">BLANK</button>
+                    <button type="button" class="cat-btn dropdown-item" data-cat="request">REQUEST</button>
+                </div>
             </div>
         </div>
-    </main> 
+
+        <div class="layout-grid" id="layout-grid"></div>
+
+        <div class="floating-wrapper">
+            <button id="next-to-camera" class="hidden" disabled>NEXT ➔</button>
+        </div>
+    </main>
 
     <script type="module" src="js/main.js"></script>
 </body>
